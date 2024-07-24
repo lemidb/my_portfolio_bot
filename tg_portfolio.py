@@ -1,6 +1,5 @@
 from telegram.ext import *
-# bot_token = "7344857569:AAFmNxOob75KiczRHZ8CslIL0X9SERwbRko"
-bot_token = "6192945152:AAGaM_RX7F9fY2wBhcCE00zdY1bGPtgHSRw"
+from config import bot_token
 from telegram import InlineKeyboardButton , InlineKeyboardMarkup, Update , callbackquery
 #swx@2WS
 
@@ -32,6 +31,11 @@ def my_handler(update: Update,context:CallbackContext):
 
         reply_markup = InlineKeyboardMarkup(keyboard)
         query.edit_message_text('Please choose:',reply_markup=reply_markup)
+    if query.data == 'projects':
+        #  swx@2WS
+        menus = [[InlineKeyboardButton('JIT LIBRARY MONITORING',callback_data='jit_library')],[InlineKeyboardButton('CHATBOT SYSTEM FOR ORGANIZATIONS WEBSITE',callback_data='chat_bot')],[InlineKeyboardButton('PROACTIVE MONITORING',callback_data='proactive')]]
+        reply_markup = InlineKeyboardMarkup(menus)
+        query.edit_message_text('Here are some of my projects',reply_markup=reply_markup)
     else:
         query.edit_message_text('OK please check out when you feel like to, anytime i\'m available thanks.')
 if __name__ == "__main__":
