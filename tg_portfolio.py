@@ -6,18 +6,32 @@ from telegram import InlineKeyboardButton , InlineKeyboardMarkup, Update , callb
 
 def start(update,context):
     # update.message.reply_text('Hello Welcome to my portfolio bot.')
-    buttons = [[InlineKeyboardButton("Yes",callback_data='yes')],[InlineKeyboardButton('No',callback_data='no')]]
+    buttons = [[InlineKeyboardButton("✅ Yes",callback_data='yes'),InlineKeyboardButton('❌ No',callback_data='no')]]
     my_reply = InlineKeyboardMarkup(buttons)
-    update.message.reply_text('Welcome to my portfolio bot \n Do you want get started? .',reply_markup = my_reply)
+    update.message.reply_text('Welcome to lemi\'s Portfolio Bot! 👋 Hello there! My name is Lemi Melkamu, and I\'m excited to show you around my portfolio through this bot. Whether you\'re looking for insights into my latest projects, wanting to learn more about my skills, or simply curious about what I do, I\'m here to guide you!')
+    update.message.reply_text('Do you want to learn more about my projects?', reply_markup=my_reply)
 def help(update,context):
     update.message.reply_text('This bot provides you with a list of my most recent projects.')
 def user_message(update,context):
     user_msg = update.message.text.lower()
 def my_handler(update: Update,context:CallbackContext):
+    # swx@2WS
     query = update.callback_query
     query.answer()
     if query.data == 'yes':
-        query.edit_message_text('you\'re at right place to get to know my skills thank you.')
+        keyboard = [
+        [
+            InlineKeyboardButton("👤 About Me", callback_data='about_me'),
+            InlineKeyboardButton("📁 Projects", callback_data='projects'),
+        ],
+        [
+            InlineKeyboardButton("💼 Skills", callback_data='skills'),
+            InlineKeyboardButton("✉️ Contact Me", callback_data='contact_me'),
+        ]
+    ]
+
+        reply_markup = InlineKeyboardMarkup(keyboard)
+        query.edit_message_text('Please choose:',reply_markup=reply_markup)
     else:
         query.edit_message_text('OK please check out when you feel like to, anytime i\'m available thanks.')
 if __name__ == "__main__":
