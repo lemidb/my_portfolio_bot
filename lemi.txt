@@ -1,0 +1,73 @@
+2024-07-25 01:27:15,124 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 01:27:25,769 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/new_env/lib/python3.10/site-packages/telegram/ext/dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/new_env/lib/python3.10/site-packages/telegram/ext/handler.py", line 145, in handle_update
+    return self.callback(update, context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/portfolio/tg_portfolio.py", line 68, in my_handler
+    project_details(update,context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/portfolio/tg_portfolio.py", line 39, in project_details
+    update.message.reply_text('Select an option to learn more about the project:', reply_markup=reply_markup)
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2024-07-25 01:29:06,324 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 01:29:06,325 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 01:29:06,560 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 01:29:07,744 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 01:31:09,598 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 01:31:09,598 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 01:31:10,862 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 01:31:12,506 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 01:31:26,172 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/new_env/lib/python3.10/site-packages/telegram/ext/dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/new_env/lib/python3.10/site-packages/telegram/ext/handler.py", line 145, in handle_update
+    return self.callback(update, context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/portfolio/tg_portfolio.py", line 76, in my_handler
+    handle_project_detail(update,context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/portfolio/tg_portfolio.py", line 86, in handle_project_detail
+    description=ProjectInfo[project]['description']
+KeyError: 'jit_library'
+2024-07-25 01:38:52,290 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 01:38:52,291 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 01:38:52,554 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 01:40:22,525 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 01:44:45,511 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 01:44:45,512 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 01:44:45,749 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 01:44:47,683 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 01:46:17,230 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 01:46:17,230 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 01:46:18,191 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 01:46:20,694 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 01:46:33,538 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/new_env/lib/python3.10/site-packages/telegram/ext/dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/new_env/lib/python3.10/site-packages/telegram/ext/handler.py", line 145, in handle_update
+    return self.callback(update, context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/portfolio/tg_portfolio.py", line 82, in my_handler
+    description=ProjectInfo[project]['description']
+KeyError: 'jit_library'
+2024-07-25 01:47:53,874 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 01:47:53,874 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 01:47:54,118 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 01:47:56,344 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 01:48:13,959 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/new_env/lib/python3.10/site-packages/telegram/ext/dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/new_env/lib/python3.10/site-packages/telegram/ext/handler.py", line 145, in handle_update
+    return self.callback(update, context)
+  File "/home/lemidb/lm/Net_Desktop/pythonProject/ChatBot/portfolio/tg_portfolio.py", line 83, in my_handler
+    description=ProjectInfo[project]['description']
+KeyError: 'jit_library'
+2024-07-25 02:03:00,509 - telegram.vendor.ptb_urllib3.urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None)) after connection broken by 'NewConnectionError('<telegram.vendor.ptb_urllib3.urllib3.connection.VerifiedHTTPSConnection object at 0x725976710760>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /bot6192945152:AAGaM_RX7F9fY2wBhcCE00zdY1bGPtgHSRw/getUpdates
+2024-07-25 02:04:40,454 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 02:04:40,454 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 02:04:40,724 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 02:10:40,522 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 02:13:06,686 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 02:13:06,687 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 02:13:06,909 - telegram.ext.updater - WARNING - Exiting immediately!

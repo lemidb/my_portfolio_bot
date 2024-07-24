@@ -1,1 +1,3 @@
 bot_token = "6192945152:AAGaM_RX7F9fY2wBhcCE00zdY1bGPtgHSRw"
+my_chat_id = '747116225'
+ProjectInfo = {"jit_library":{"description":"JIT LIBRARY description","technologies":"python,opencv,pyqt5,mysql","outcome":"librarians can now easily manager the library","demo":"jit_library_demo"},"chat_bot":{"description":"chat_bot description ","technologies":"python,SVM,React,Flask,mysql","outcome":"users can now get specific information they are looking for without complex navigation","demo":"chatbot_demo"},"proactive":{"description":"proactive description","technologies":"python,docker,Django,matplotlib","outcome":"it removed burden from system admins","demo":"proactive_demo"}}
