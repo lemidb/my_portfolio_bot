@@ -71,3 +71,129 @@ KeyError: 'jit_library'
 2024-07-25 02:13:06,686 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
 2024-07-25 02:13:06,687 - apscheduler.scheduler - INFO - Scheduler has been shut down
 2024-07-25 02:13:06,909 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 08:01:39,508 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 08:08:15,783 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 08:08:15,783 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 08:08:16,038 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 08:08:24,584 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 08:10:30,037 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 08:10:30,037 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 08:10:30,258 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 08:12:00,449 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 08:13:08,182 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 08:13:08,182 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 08:13:12,269 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 08:13:14,800 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 08:27:04,418 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 08:27:04,418 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 08:27:04,624 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 08:27:09,085 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 08:30:03,218 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 08:30:03,218 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 08:39:45,490 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 08:47:14,920 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 08:47:14,920 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 08:47:15,142 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 08:47:20,383 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 08:48:52,274 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 08:48:52,274 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 08:48:52,512 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 08:48:57,125 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 09:01:39,354 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 09:01:39,354 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 09:01:39,609 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 09:01:44,671 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 09:03:40,617 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 09:03:40,617 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 09:03:40,916 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 09:03:44,423 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 09:04:48,430 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 09:04:48,430 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 09:04:48,714 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 09:04:50,056 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 09:09:32,632 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 09:09:32,632 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 09:09:32,848 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 09:09:34,739 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 09:09:55,407 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2024-07-25 09:09:55,407 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2024-07-25 09:09:55,659 - telegram.ext.updater - WARNING - Exiting immediately!
+2024-07-25 09:09:56,839 - apscheduler.scheduler - INFO - Scheduler started
+2024-07-25 10:06:50,695 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\handler.py", line 145, in handle_update
+    return self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 84, in my_handler
+    handle_project_details(update,context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 96, in handle_project_details
+    project = stack.pop()
+              ^^^^^^^^^^^
+IndexError: pop from empty list
+2024-07-25 10:06:57,505 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\handler.py", line 145, in handle_update
+    return self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 84, in my_handler
+    handle_project_details(update,context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 96, in handle_project_details
+    project = stack.pop()
+              ^^^^^^^^^^^
+IndexError: pop from empty list
+2024-07-25 10:06:59,682 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\handler.py", line 145, in handle_update
+    return self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 78, in my_handler
+    handle_project_details(update,context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 96, in handle_project_details
+    project = stack.pop()
+              ^^^^^^^^^^^
+IndexError: pop from empty list
+2024-07-25 10:07:01,690 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\handler.py", line 145, in handle_update
+    return self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 82, in my_handler
+    handle_project_details(update,context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 96, in handle_project_details
+    project = stack.pop()
+              ^^^^^^^^^^^
+IndexError: pop from empty list
+2024-07-25 10:07:03,241 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\handler.py", line 145, in handle_update
+    return self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 80, in my_handler
+    handle_project_details(update,context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 96, in handle_project_details
+    project = stack.pop()
+              ^^^^^^^^^^^
+IndexError: pop from empty list
+2024-07-25 10:07:05,136 - __main__ - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\dispatcher.py", line 425, in process_update
+    handler.handle_update(update, self, check, context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\myenv\Lib\site-packages\telegram\ext\handler.py", line 145, in handle_update
+    return self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 84, in my_handler
+    handle_project_details(update,context)
+  File "D:\PERSONAL\MYPC\PROJECTS\python\IMPORTANT\CHATBOTS\my_portfolio_bot\tg_portfolio.py", line 96, in handle_project_details
+    project = stack.pop()
+              ^^^^^^^^^^^
+IndexError: pop from empty list

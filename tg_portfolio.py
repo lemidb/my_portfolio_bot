@@ -1,6 +1,6 @@
 import logging
 from telegram.ext import *
-from config import bot_token,my_chat_id,ProjectInfo
+from config import bot_token,my_chat_id,ProjectInfo,about_section,demos
 from telegram import InlineKeyboardButton , InlineKeyboardMarkup, Update , callbackquery
 #swx@2WS
 stack = []
@@ -8,6 +8,9 @@ stack = []
 logging.basicConfig(filename="lemi.txt",level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+project=''
+
 def start(update,context):
     # swx@2WS
     # update.message.reply_text('Hello Welcome to my portfolio bot.')
@@ -59,72 +62,87 @@ def my_handler(update: Update,context:CallbackContext):
         reply_markup = InlineKeyboardMarkup(keyboard)
         query.edit_message_text('Please choose:',reply_markup=reply_markup)
     if data == 'projects':
-        #   
         menus = [[InlineKeyboardButton('JIT LIBRARY MONITORING',callback_data='jit_library')],[InlineKeyboardButton('CHATBOT SYSTEM FOR ORGANIZATIONS WEBSITE',callback_data='chat_bot')],[InlineKeyboardButton('PROACTIVE MONITORING',callback_data='proactive')]]
         reply_markup = InlineKeyboardMarkup(menus)
         query.edit_message_text('Here are some of my projects',reply_markup=reply_markup)
     if data == 'jit_library':
         stack.append(query.data)
-        print('## Stack status: ',stack)
         project_details(update,context)
-        # handle_project_detail(update,context)
     if data == 'chat_bot':
         stack.append(query.data)
         project_details(update,context)
-        # handle_project_detail(update,context)
     if data == 'proactive':
         stack.append(query.data)
         project_details(update,context)
-        # handle_project_detail(update,context)           
+           
     if data == 'project_description':
-        project = stack.pop()
-        print(f'heres the project selected earlier: {project} ')
-        # if project in ProjectInfo.keys():
-        description=ProjectInfo[project]['description']
-        query.edit_message_text(description)
+        handle_project_details(update,context)
     if data == 'technologies_used':
-        project = stack.pop()
-        # if project in ProjectInfo.keys():
-        technologies=ProjectInfo[project]['technologies']
-        query.edit_message_text(technologies)
+        handle_project_details(update,context)
     if data == 'outcome':
-        project = stack.pop()
-        if project in ProjectInfo.keys():
-            outcome=ProjectInfo[project]['outcome']
-            query.edit_message_text(outcome)
+        handle_project_details(update,context)
     if data == 'demo':
-        project = stack.pop()
-        if project in ProjectInfo.keys():
-            code_snippets=ProjectInfo[project]['demo']
-            query.edit_message_text(code_snippets)     
+        handle_project_details(update,context)
+    if data == "back":
+            project_details(update,context)         
+    if data == "about_me":
+        text = about_section
+        query.edit_message_text(text=text)
+    if data == "contact_me":
+        my_github = "https://github.com/lemidb"
+        my_linkedin = "https://www.linkedin.com/in/lemidbgelnemerd2"
+        my_twitter = "http://x.com/lemi_melkamu"
+        my_gmail = "mailto:lemimelkamu@gmail.com"
+        contact_keyboard = [
+    [InlineKeyboardButton("🐙 GitHub", url=my_github)],
+     [InlineKeyboardButton("💼 LinkedIn", url=my_linkedin)],
+    [InlineKeyboardButton("🐦 Twitter", url=my_twitter)],
+    [InlineKeyboardButton("📧 Gmail", url=my_gmail)]
+]
+        reply_markup = InlineKeyboardMarkup(contact_keyboard)
+        query.edit_message_text(text="Here are my contact details:",reply_markup=reply_markup)
     if query.data == 'no':
         query.edit_message_text('OK please check out when you feel like to, anytime i\'m available thanks.')
 
-def handle_project_detail(update: Update,context= CallbackContext):
+def handle_project_details(update: Update,context=CallbackContext):
     query = update.callback_query
     query.answer()
     data = query.data
-    print(f'@@@ Hello We are handling project details here and query data is : {data}') 
-    if data == 'project_description':
+    print('## Stack status: ',stack)
+    global project
+    if stack:
         project = stack.pop()
-        if project in ProjectInfo.keys():
-            description=ProjectInfo[project]['description']
-            query.edit_message_text(description)
-    if data == 'technologies_used':
-        project = stack.pop()
-        if project in ProjectInfo.keys():
+    print(f"Here is the last selected project: {project}")
+    if project in ProjectInfo.keys():
+        if data == 'project_description':
+            if project in ProjectInfo.keys():
+                description=ProjectInfo[project]['description']
+                buttons = [[InlineKeyboardButton("Back", callback_data="back")]]
+                reply_markup = InlineKeyboardMarkup(buttons)
+                query.edit_message_text(text="DESCRIPTION for the project: {} :".format(project),reply_markup=reply_markup)
+        if data =="technologies_used":
             technologies=ProjectInfo[project]['technologies']
-            query.edit_message_text(technologies)
-    if data == 'outcome':
-        project = stack.pop()
-        if project in ProjectInfo.keys():
+            buttons =[ [InlineKeyboardButton(str(tech),callback_data=tech) for tech in technologies] ]
+            buttons.append([InlineKeyboardButton("Back", callback_data="back")])
+            reply_markup = InlineKeyboardMarkup(buttons)
+            query.edit_message_text(text="Here are the technologies used for {}:".format(project),reply_markup=reply_markup)
+        if data == "outcome":
             outcome=ProjectInfo[project]['outcome']
-            query.edit_message_text(outcome)
-    if data == 'code_snippets_demos':
-        project = stack.pop()
-        if project in ProjectInfo.keys():
-            code_snippets=ProjectInfo[project]['code_snippets']
-            query.edit_message_text(code_snippets)
+            buttons = [[InlineKeyboardButton(outcome,callback_data='outcome')],[InlineKeyboardButton("Back", callback_data="back")]]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            query.edit_message_text(text="Outcome of the project {}: ".format(project),reply_markup=reply_markup)
+        if data == "demo":
+            demo=ProjectInfo[project]['demo']
+            demo_path = demos[demo]
+            print(f"Here is the demo file: {demo_path}")
+            with open(f"{demo_path}",'rb') as video:
+                #  query.message.reply_audio(audio,caption="Here's the one-minute video. Enjoy!")
+                #  query.message.reply_audio(video,caption="Here is my demo for {} project. ".format(project))
+                context.bot.send_video(chat_id=query.message.chat_id, video=video, caption="Here's my demo for the {} project. Enjoy!".format(project))
+            # buttons = [[InlineKeyboardButton("Back", callback_data="back")]]
+            # reply_markup = InlineKeyboardMarkup(buttons)
+            # query.edit_message_text(text="Here is the demo for {} project".format(project),reply_markup=reply_markup)
+        
 def error_handler(update: Update, context: CallbackContext) -> None:
     """Log the error and send a telegram message to notify the developer."""
     logger.error(msg="Exception while handling an update:", exc_info=context.error)
