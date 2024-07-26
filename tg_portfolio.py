@@ -6,6 +6,7 @@ from telegram import InlineKeyboardButton , InlineKeyboardMarkup, Update , callb
 
 #swx@2WS
 stack = []
+count=0
 callback_stack = []
 logging.basicConfig(filename="lemi.txt",level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -15,7 +16,6 @@ project=''
 
 def start(update,context) -> None:
     # swx@2WS
-    # update.message.reply_text('Hello Welcome to my portfolio bot.')
     buttons = [[InlineKeyboardButton("✅ Yes",callback_data='yes'),InlineKeyboardButton('❌ No',callback_data='no')]]
     my_reply = InlineKeyboardMarkup(buttons)
     initial_message = 'Welcome to lemi\'s Portfolio Bot! 👋 Hello there! My name is Lemi Melkamu, and I\'m excited to show you around my portfolio through this bot. Whether you\'re looking for insights into my latest projects, wanting to learn more about my skills, or simply curious about what I do, I\'m here to guide you!'
@@ -49,8 +49,10 @@ def my_handler(update: Update,context:CallbackContext) -> None: # type: ignore
     query = update.callback_query
     query.answer()
     data = query.data
-    
+    global stack
+    stack.append(query.data)
     print(f'Query data : {data}   is selected')
+    print(f'and Here is the stack content: {stack}')
     if data == 'yes':
         keyboard = [
         [
@@ -61,38 +63,35 @@ def my_handler(update: Update,context:CallbackContext) -> None: # type: ignore
             InlineKeyboardButton("💼 Skills", callback_data='skills'),
             InlineKeyboardButton("✉️ Contact Me", callback_data='contact_me'),
         ],
-        [InlineKeyboardButton("⬅️ Back", callback_data="back")]
+        [InlineKeyboardButton("⬅️ Back", callback_data="read_more")]
     ]
 
         reply_markup = InlineKeyboardMarkup(keyboard)
         query.edit_message_text('choose the options please',reply_markup=reply_markup)
+    if data in ['read_more','about_me','projects','skills','contact_me','jit_library','chat_bot','proactive','project_description','technologies_used','outcome','demo']:
+        inner_handler(update,context,data)
+    if data == 'back':
+        global count 
+        count = count + 1
+        if count >= 1:
+            data=stack[-2]
+        print(f'you are passing {data} to the inner_handler method.')
+        inner_handler(update,context,data)
+    if query.data == 'no':
+        query.edit_message_text('OK please check out when you feel like to, anytime i\'m available thanks.')   
+def inner_handler(update:Update,context:CallbackContext,data)->None:
+    query = update.callback_query
+    print(f"we are in inner_handler method and stack content is : {stack}")
     if data == 'projects':
         menus = [[InlineKeyboardButton('JIT Library monitoring',callback_data='jit_library')],[InlineKeyboardButton('Chatbot system for organizations website',callback_data='chat_bot')],[InlineKeyboardButton('Proactive monitoring',callback_data='proactive')],
                  [InlineKeyboardButton("⬅️ Back", callback_data="back")]]
         reply_markup = InlineKeyboardMarkup(menus)
         query.edit_message_text('Here are some of my projects',reply_markup=reply_markup)
-    if data == 'jit_library':
-        stack.append(query.data)
-        project_details(update,context)
-    if data == 'chat_bot':
-        stack.append(query.data)
-        project_details(update,context)
-    if data == 'proactive':
-        stack.append(query.data)
-        project_details(update,context)
-           
-    if data == 'project_description':
-        handle_project_details(update,context)
-    if data == 'technologies_used':
-        handle_project_details(update,context)
-    if data == 'outcome':
-        handle_project_details(update,context)
-    if data == 'demo':
-        handle_project_details(update,context)
-    if data == "back":
-       data = stack.pop()      
-    # if data == "project":
-    #     my_handler(update,context)            
+    
+    if data in ['jit_library','chat_bot','proactive']:
+        project_details(update,context)       
+    if data in ['project_description','technologies_used','outcome','demo']:
+        handle_project_details(update,context,data)
     if data == "about_me":
         text = about_section
         button = [[InlineKeyboardButton("⬅️ Back", callback_data="back")]]
@@ -100,45 +99,36 @@ def my_handler(update: Update,context:CallbackContext) -> None: # type: ignore
         query.message.reply_markup(reply_markup=InlineKeyboardMarkup(button))
         
     if data == "contact_me":
-                
         my_github = "https://github.com/lemidb"
         my_linkedin = "https://www.linkedin.com/in/lemidbgelnemerd2"
         my_twitter = "http://x.com/lemi_melkamu"
-        my_gmail = "mailto:lemimelkamu@gmail.com"
         my_telegram = "https://t.me/@lemidb"
-
-    # [InlineKeyboardButton("🐙 GitHub", url=my_github),
+        
         contact_keyboard = [[InlineKeyboardButton("💼 LinkedIn", url = my_linkedin),InlineKeyboardButton("🐙 GitHub", url = my_github)],[InlineKeyboardButton("🐦 Twitter",url=my_twitter),InlineKeyboardButton("🛸 Telegram",url=my_telegram)],[InlineKeyboardButton("⬅️ Back", callback_data="back")]]
         reply_markup = InlineKeyboardMarkup(contact_keyboard)
-#         # chat_id=query.message.chat_id,message_id=query.message.message_id,
         query.edit_message_text(text='Here are my contact details:',reply_markup=reply_markup)
-        # query.edit_message_text('Here is my email: {}'.format(my_gmail))
-    if query.data == 'no':
-        query.edit_message_text('OK please check out when you feel like to, anytime i\'m available thanks.')   
-
+       
 
 def print_and_return(value):
     print(f'## This tech values after filtered. {value}')
     return value
 
 def clean_emoji(text):
-    # return ''.join(c for c in text if c not in emoji.UNICODE_EMOJI)
         cleaned_text = emoji.replace_emoji(text, replace="")
-        # Replace emojis with an empty string
-        # cleaned_text = emoji_pattern.sub(r'', text)
         return cleaned_text
     
-def handle_project_details(update: Update,context=CallbackContext) -> None:
+def handle_project_details(update: Update,context:CallbackContext,data) -> None:
     query = update.callback_query
     query.answer()
-    data = query.data
     print('## Stack status: ',stack)
     global project
     if stack:
-        project = stack.pop()
+        project = stack[-2]
     print(f"Here is the last selected project: {project}")
     if project in ProjectInfo.keys():
+        print(f'Oohhh! Great {project} is in ProjectInfo dictionary ')
         if data == 'project_description':
+            
             if project in ProjectInfo.keys():
                 description=ProjectInfo[project]['description']
                 buttons = [[InlineKeyboardButton("⬅️ Back", callback_data="back")]]
@@ -146,12 +136,10 @@ def handle_project_details(update: Update,context=CallbackContext) -> None:
                 query.edit_message_text(text="DESCRIPTION for the project: {} :".format(project),reply_markup=reply_markup)
         if data =="technologies_used":
             technologies=ProjectInfo[project]['technologies']
-            emoji_pattern = re.compile("[\U00010000-\U0010ffff]", flags=re.UNICODE)
-            for tech in technologies:
-                # cleaned_tech = emoji.replace_emoji(tech,'')
-                cleaned_tech = clean_emoji(tech)
-                # emoji_pattern.sub('',tech).strip()
-            buttons = [[InlineKeyboardButton(tech, url=print_and_return(tech_urls[cleaned_tech]))] for tech in technologies]
+            # for tech in technologies:
+            #     cleaned_tech = clean_emoji(tech)
+            print(f'@#@#@ Processing data for project: {project}  technologies: {technologies}')
+            buttons = [[InlineKeyboardButton(tech, url=print_and_return(tech_urls[clean_emoji(tech)]))] for tech in technologies]
             buttons.append([InlineKeyboardButton("⬅️ Back", callback_data="back")])
             reply_markup = InlineKeyboardMarkup(buttons)
             query.edit_message_text(text="Here are the technologies used for {}:".format(project),reply_markup=reply_markup)
