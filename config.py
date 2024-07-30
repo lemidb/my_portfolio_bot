@@ -1,5 +1,3 @@
-# bot_token = "5935164807:AAH80Y80Fm6DEYhtsd3IYlVZuhwq8tQ8Xc8"
-# bot_token = "6192945152:AAGaM_RX7F9fY2wBhcCE00zdY1bGPtgHSRw"
 bot_token = "7378302156:AAFzV0Qokhwol1i0fTV7umbaKb9sqr7qqmQ"
 my_chat_id = '747116225'
 ProjectInfo = {
