@@ -1,5 +1,4 @@
-bot_token = "7378302156:AAFzV0Qokhwol1i0fTV7umbaKb9sqr7qqmQ"
-my_chat_id = '747116225'
+
 ProjectInfo = {
     "jit_library":{"description":"JIT LIBRARY description","technologies":["🐍 python","🖼️ opencv","🖥️ pyqt5","🗃️ mysql"],"outcome":"librarians can now easily manager the library","demo":"jit_library_demo"},
     "chat_bot":{"description":"chat_bot description ","technologies":["🐍 python","📈 SVM","⚛️ React","🍶 Flask","🗃️ mysql"],"outcome":"users can now get specific information they are looking for without complex navigation","demo":"chatbot_demo"},
