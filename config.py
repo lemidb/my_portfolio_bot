@@ -1,4 +1,3 @@
-my_chat_id = '747116225'
 ProjectInfo = {
     "jit_library":{"description":"JITLibTracker is an innovative solution designed to enhance the management and accessibility of library resources within educational institutions. Leveraging advanced computer vision techniques and real-time data processing, JITLibTracker offers librarians an efficient tool for monitoring daily, weekly, and monthly library usage patterns. Simultaneously, it empowers students with immediate access to library occupancy information directly from their dormitories via an integrated Telegram chatbot, promoting informed decision-making and optimal resource utilization.",
                    "technologies":["🐍 python","🖼️ opencv","🤖 python-telegram-bot","🖥️ pyqt5","🗃️ mysql"],
