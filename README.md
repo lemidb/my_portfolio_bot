@@ -4,7 +4,7 @@ Greetings fellow developers! 👋 I'm thrilled to introduce my innovative Telegr
 
 ## Project Overview
 
-The `lemi_portfolio_bot` (https://t.me/lemi_portfolio_bot) is an experimental bot that challenges traditional portfolio presentation methods. It offers a unique, button-driven journey through:
+The [`lemi_portfolio_bot`](https://t.me/lemi_portfolio_bot) is an experimental bot that challenges traditional portfolio presentation methods. It offers a unique, button-driven journey through:
 
 - A visually appealing "About Me" section with images and captions
 - Recent projects with descriptions, outcomes, technologies used, and demos
