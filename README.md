@@ -1,6 +1,6 @@
 # 🚀 Interactive Telegram Bot Portfolio
 
-Greetings fellow developers! 👋 I'm thrilled to introduce my innovative Telegram bot portfolio, which reimagines how professionals showcase their skills and achievements in a dynamic, interactive manner.
+Greetings fellow developers! 👋 I'm thrilled to introduce my innovative Telegram bot portfolio, which takes different approach to how professionals showcase their skills and achievements in a interactive manner.
 
 ## Project Overview
 
